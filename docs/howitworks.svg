@@ -1,0 +1,350 @@
+<svg id="mermaid-1524354594519" width="100%" xmlns="http://www.w3.org/2000/svg" style="max-width: 510.4343719482422px;" viewBox="0 0 510.4343719482422 467.8859329223633"><style>
+
+
+#mermaid-1524354594519 .label {
+  font-family: 'trebuchet ms', verdana, arial;
+  color: #333; }
+
+#mermaid-1524354594519 .node rect,
+#mermaid-1524354594519 .node circle,
+#mermaid-1524354594519 .node ellipse,
+#mermaid-1524354594519 .node polygon {
+  fill: #ECECFF;
+  stroke: #9370DB;
+  stroke-width: 1px; }
+
+#mermaid-1524354594519 .node.clickable {
+  cursor: pointer; }
+
+#mermaid-1524354594519 .arrowheadPath {
+  fill: #333333; }
+
+#mermaid-1524354594519 .edgePath .path {
+  stroke: #333333;
+  stroke-width: 1.5px; }
+
+#mermaid-1524354594519 .edgeLabel {
+  background-color: #e8e8e8; }
+
+#mermaid-1524354594519 .cluster rect {
+  fill: #ffffde !important;
+  stroke: #aaaa33 !important;
+  stroke-width: 1px !important; }
+
+#mermaid-1524354594519 .cluster text {
+  fill: #333; }
+
+#mermaid-1524354594519 div.mermaidTooltip {
+  position: absolute;
+  text-align: center;
+  max-width: 200px;
+  padding: 2px;
+  font-family: 'trebuchet ms', verdana, arial;
+  font-size: 12px;
+  background: #ffffde;
+  border: 1px solid #aaaa33;
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 100; }
+
+#mermaid-1524354594519 .actor {
+  stroke: #CCCCFF;
+  fill: #ECECFF; }
+
+#mermaid-1524354594519 text.actor {
+  fill: black;
+  stroke: none; }
+
+#mermaid-1524354594519 .actor-line {
+  stroke: grey; }
+
+#mermaid-1524354594519 .messageLine0 {
+  stroke-width: 1.5;
+  stroke-dasharray: '2 2';
+  marker-end: 'url(#arrowhead)';
+  stroke: #333; }
+
+#mermaid-1524354594519 .messageLine1 {
+  stroke-width: 1.5;
+  stroke-dasharray: '2 2';
+  stroke: #333; }
+
+#mermaid-1524354594519 #arrowhead {
+  fill: #333; }
+
+#mermaid-1524354594519 #crosshead path {
+  fill: #333 !important;
+  stroke: #333 !important; }
+
+#mermaid-1524354594519 .messageText {
+  fill: #333;
+  stroke: none; }
+
+#mermaid-1524354594519 .labelBox {
+  stroke: #CCCCFF;
+  fill: #ECECFF; }
+
+#mermaid-1524354594519 .labelText {
+  fill: black;
+  stroke: none; }
+
+#mermaid-1524354594519 .loopText {
+  fill: black;
+  stroke: none; }
+
+#mermaid-1524354594519 .loopLine {
+  stroke-width: 2;
+  stroke-dasharray: '2 2';
+  marker-end: 'url(#arrowhead)';
+  stroke: #CCCCFF; }
+
+#mermaid-1524354594519 .note {
+  stroke: #aaaa33;
+  fill: #fff5ad; }
+
+#mermaid-1524354594519 .noteText {
+  fill: black;
+  stroke: none;
+  font-family: 'trebuchet ms', verdana, arial;
+  font-size: 14px; }
+
+
+#mermaid-1524354594519 .section {
+  stroke: none;
+  opacity: 0.2; }
+
+#mermaid-1524354594519 .section0 {
+  fill: rgba(102, 102, 255, 0.49); }
+
+#mermaid-1524354594519 .section2 {
+  fill: #fff400; }
+
+#mermaid-1524354594519 .section1,
+#mermaid-1524354594519 .section3 {
+  fill: white;
+  opacity: 0.2; }
+
+#mermaid-1524354594519 .sectionTitle0 {
+  fill: #333; }
+
+#mermaid-1524354594519 .sectionTitle1 {
+  fill: #333; }
+
+#mermaid-1524354594519 .sectionTitle2 {
+  fill: #333; }
+
+#mermaid-1524354594519 .sectionTitle3 {
+  fill: #333; }
+
+#mermaid-1524354594519 .sectionTitle {
+  text-anchor: start;
+  font-size: 11px;
+  text-height: 14px; }
+
+
+#mermaid-1524354594519 .grid .tick {
+  stroke: lightgrey;
+  opacity: 0.3;
+  shape-rendering: crispEdges; }
+
+#mermaid-1524354594519 .grid path {
+  stroke-width: 0; }
+
+
+#mermaid-1524354594519 .today {
+  fill: none;
+  stroke: red;
+  stroke-width: 2px; }
+
+
+
+#mermaid-1524354594519 .task {
+  stroke-width: 2; }
+
+#mermaid-1524354594519 .taskText {
+  text-anchor: middle;
+  font-size: 11px; }
+
+#mermaid-1524354594519 .taskTextOutsideRight {
+  fill: black;
+  text-anchor: start;
+  font-size: 11px; }
+
+#mermaid-1524354594519 .taskTextOutsideLeft {
+  fill: black;
+  text-anchor: end;
+  font-size: 11px; }
+
+
+#mermaid-1524354594519 .taskText0,
+#mermaid-1524354594519 .taskText1,
+#mermaid-1524354594519 .taskText2,
+#mermaid-1524354594519 .taskText3 {
+  fill: white; }
+
+#mermaid-1524354594519 .task0,
+#mermaid-1524354594519 .task1,
+#mermaid-1524354594519 .task2,
+#mermaid-1524354594519 .task3 {
+  fill: #8a90dd;
+  stroke: #534fbc; }
+
+#mermaid-1524354594519 .taskTextOutside0,
+#mermaid-1524354594519 .taskTextOutside2 {
+  fill: black; }
+
+#mermaid-1524354594519 .taskTextOutside1,
+#mermaid-1524354594519 .taskTextOutside3 {
+  fill: black; }
+
+
+#mermaid-1524354594519 .active0,
+#mermaid-1524354594519 .active1,
+#mermaid-1524354594519 .active2,
+#mermaid-1524354594519 .active3 {
+  fill: #bfc7ff;
+  stroke: #534fbc; }
+
+#mermaid-1524354594519 .activeText0,
+#mermaid-1524354594519 .activeText1,
+#mermaid-1524354594519 .activeText2,
+#mermaid-1524354594519 .activeText3 {
+  fill: black !important; }
+
+
+#mermaid-1524354594519 .done0,
+#mermaid-1524354594519 .done1,
+#mermaid-1524354594519 .done2,
+#mermaid-1524354594519 .done3 {
+  stroke: grey;
+  fill: lightgrey;
+  stroke-width: 2; }
+
+#mermaid-1524354594519 .doneText0,
+#mermaid-1524354594519 .doneText1,
+#mermaid-1524354594519 .doneText2,
+#mermaid-1524354594519 .doneText3 {
+  fill: black !important; }
+
+
+#mermaid-1524354594519 .crit0,
+#mermaid-1524354594519 .crit1,
+#mermaid-1524354594519 .crit2,
+#mermaid-1524354594519 .crit3 {
+  stroke: #ff8888;
+  fill: red;
+  stroke-width: 2; }
+
+#mermaid-1524354594519 .activeCrit0,
+#mermaid-1524354594519 .activeCrit1,
+#mermaid-1524354594519 .activeCrit2,
+#mermaid-1524354594519 .activeCrit3 {
+  stroke: #ff8888;
+  fill: #bfc7ff;
+  stroke-width: 2; }
+
+#mermaid-1524354594519 .doneCrit0,
+#mermaid-1524354594519 .doneCrit1,
+#mermaid-1524354594519 .doneCrit2,
+#mermaid-1524354594519 .doneCrit3 {
+  stroke: #ff8888;
+  fill: lightgrey;
+  stroke-width: 2;
+  cursor: pointer;
+  shape-rendering: crispEdges; }
+
+#mermaid-1524354594519 .doneCritText0,
+#mermaid-1524354594519 .doneCritText1,
+#mermaid-1524354594519 .doneCritText2,
+#mermaid-1524354594519 .doneCritText3 {
+  fill: black !important; }
+
+#mermaid-1524354594519 .activeCritText0,
+#mermaid-1524354594519 .activeCritText1,
+#mermaid-1524354594519 .activeCritText2,
+#mermaid-1524354594519 .activeCritText3 {
+  fill: black !important; }
+
+#mermaid-1524354594519 .titleText {
+  text-anchor: middle;
+  font-size: 18px;
+  fill: black; }
+
+#mermaid-1524354594519 g.classGroup text {
+  fill: #9370DB;
+  stroke: none;
+  font-family: 'trebuchet ms', verdana, arial;
+  font-size: 10px; }
+
+#mermaid-1524354594519 g.classGroup rect {
+  fill: #ECECFF;
+  stroke: #9370DB; }
+
+#mermaid-1524354594519 g.classGroup line {
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1524354594519 .classLabel .box {
+  stroke: none;
+  stroke-width: 0;
+  fill: #ECECFF;
+  opacity: 0.5; }
+
+#mermaid-1524354594519 .classLabel .label {
+  fill: #9370DB;
+  font-size: 10px; }
+
+#mermaid-1524354594519 .relation {
+  stroke: #9370DB;
+  stroke-width: 1;
+  fill: none; }
+
+#mermaid-1524354594519 #compositionStart {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1524354594519 #compositionEnd {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1524354594519 #aggregationStart {
+  fill: #ECECFF;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1524354594519 #aggregationEnd {
+  fill: #ECECFF;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1524354594519 #dependencyStart {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1524354594519 #dependencyEnd {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1524354594519 #extensionStart {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1524354594519 #extensionEnd {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1524354594519 .commit-id,
+#mermaid-1524354594519 .commit-msg,
+#mermaid-1524354594519 .branch-label {
+  fill: lightgrey;
+  color: lightgrey; }
+</style><style>#mermaid-1524354594519 {
+    color: rgba(0, 0, 0, 0.65098);
+    font: normal normal normal normal 14px/21px "Monospaced Number", "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }</style><g transform="translate(-12, -12)"><g class="output"><g class="clusters"></g><g class="edgePaths"><g class="edgePath" style="opacity: 1;"><path class="path" d="M80.95641451518355,130.04062271118164L158.8828125,52.94921684265137L246.38698727520023,69.14752051885068" marker-end="url(#arrowhead1056)" style="fill:none"></path><defs><marker id="arrowhead1056" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M246.38698727520023,77.75091316645205L158.8828125,93.94921684265137L95.96935874378732,130.04062271118164" marker-end="url(#arrowhead1057)" style="fill:none"></path><defs><marker id="arrowhead1057" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M78.33095637583892,171.04062271118164L158.8828125,262.29062271118164L217.296875,262.29062271118164" marker-end="url(#arrowhead1058)" style="fill:none"></path><defs><marker id="arrowhead1058" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M278.38073912830765,241.79062271118164L346.953125,81.2406234741211L379.1587180047914,85.03503199520856" marker-end="url(#arrowhead1059)" style="fill:none"></path><defs><marker id="arrowhead1059" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M321.953125,262.29062271118164L346.953125,262.29062271118164L393.8843734741212,262.7906227111817" marker-end="url(#arrowhead1060)" style="fill:none"></path><defs><marker id="arrowhead1060" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M287.7727424446152,282.79062271118164L346.953125,349.6417942047119L411.4003608736792,394.8933876004419" marker-end="url(#arrowhead1061)" style="fill:none"></path><defs><marker id="arrowhead1061" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M393.967632755944,422.65981873006496L346.953125,426.9929656982422L269.625,426.9929656982422L158.8828125,426.9929656982422L67.54953444809574,171.04062271118164" marker-end="url(#arrowhead1062)" style="fill:none"></path><defs><marker id="arrowhead1062" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M397.6062046978551,116.89370469785509L346.953125,143.76562309265137L269.625,143.76562309265137L158.8828125,143.76562309265137L100.46875,147.77739723914308" marker-end="url(#arrowhead1063)" style="fill:none"></path><defs><marker id="arrowhead1063" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" style="opacity: 1;" transform="translate(158.8828125,52.94921684265137)"><g transform="translate(-33.4140625,-10.5)" class="label"><foreignObject width="66.828125" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">TCP / SSH</span></div></foreignObject></g></g><g class="edgeLabel" style="opacity: 1;" transform="translate(158.8828125,93.94921684265137)"><g transform="translate(-18.5234375,-10.5)" class="label"><foreignObject width="37.046875" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">JSON</span></div></foreignObject></g></g><g class="edgeLabel" style="opacity: 1;" transform="translate(158.8828125,262.29062271118164)"><g transform="translate(-18.4453125,-10.5)" class="label"><foreignObject width="36.890625" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">POST</span></div></foreignObject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" style="opacity: 1;" transform="translate(269.625,426.9929656982422)"><g transform="translate(-18.4453125,-10.5)" class="label"><foreignObject width="36.890625" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">POST</span></div></foreignObject></g></g><g class="edgeLabel" style="opacity: 1;" transform="translate(269.625,143.76562309265137)"><g transform="translate(-18.4453125,-10.5)" class="label"><foreignObject width="36.890625" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">POST</span></div></foreignObject></g></g></g><g class="nodes"><g class="node" style="opacity: 1;" id="A" transform="translate(60.234375,150.54062271118164)"><rect rx="0" ry="0" x="-40.234375" y="-20.5" width="80.46875" height="41"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-30.234375,-10.5)"><foreignObject width="60.46875" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">minerstat</div></foreignObject></g></g></g><g class="node" style="opacity: 1;" id="B" transform="translate(269.625,73.44921684265137)"><circle x="-23.6328125" y="-20.5" r="23.6328125"></circle><g class="label" transform="translate(0,0)"><g transform="translate(-13.6328125,-10.5)"><foreignObject width="27.265625" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">ASIC</div></foreignObject></g></g></g><g class="node" style="opacity: 1;" id="C" transform="translate(269.625,262.29062271118164)"><rect rx="5" ry="5" x="-52.328125" y="-20.5" width="104.65625" height="41"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-42.328125,-10.5)"><foreignObject width="84.65625" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">minerstat API</div></foreignObject></g></g></g><g class="node" style="opacity: 1;" id="D" transform="translate(443.1937484741211,91.2406234741211)"><polygon points="71.24062500000001,0 142.48125000000002,-71.24062500000001 71.24062500000001,-142.48125000000002 0,-71.24062500000001" rx="5" ry="5" transform="translate(-71.24062500000001,71.24062500000001)"></polygon><g class="label" transform="translate(0,0)"><g transform="translate(-48.65625,-10.5)"><foreignObject width="97.3125" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">User interface's</div></foreignObject></g></g></g><g class="node" style="opacity: 1;" id="E" transform="translate(443.1937484741211,262.29062271118164)"><polygon points="49.809375,0 99.61875,-49.809375 49.809375,-99.61875 0,-49.809375" rx="5" ry="5" transform="translate(-49.809375,49.809375)"></polygon><g class="label" transform="translate(0,0)"><g transform="translate(-24.84375,-10.5)"><foreignObject width="49.6875" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Alerting</div></foreignObject></g></g></g><g class="node" style="opacity: 1;" id="F" transform="translate(443.1937484741211,416.9929656982422)"><polygon points="54.89296875,0 109.7859375,-54.89296875 54.89296875,-109.7859375 0,-54.89296875" rx="5" ry="5" transform="translate(-54.89296875,54.89296875)"></polygon><g class="label" transform="translate(0,0)"><g transform="translate(-30.4921875,-10.5)"><foreignObject width="60.984375" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Watchdog</div></foreignObject></g></g></g></g></g></g></svg>
