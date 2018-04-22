@@ -15,7 +15,6 @@ install:
   - cmd: electron-packager . minerstat --overwrite --asar=true --platform=win32 --arch=ia32 --icon=asset/logo.ico --prune=true --out=release-builds --version-string.CompanyName=\"minerstat OÜ\" --version-string.FileDescription=\"ASIC monitor\" --version-string.ProductName=\"minerstat\"
   - cmd: electron-packager . minerstat --overwrite --platform=darwin --arch=x64 --icon=asset/logo.icns --prune=true --out=release-builds
   - 7z a -t7z minerstat-darwin-x64.7z release-builds/minerstat-darwin-x64
-  - electron-installer-dmg ./release-builds/minerstat-darwin-x64/minerstat.app minerstat --out=/release-builds --debug --overwrite
   - cmd: electron-packager . minerstat --overwrite --asar=true --platform=linux --arch=x64 --icon=asset/1024x1024.png --prune=true --out=release-builds
   - cmd: electron-packager . minerstat --overwrite --asar=true --platform=linux --arch=armv7l --icon=asset/1024x1024.png --prune=true --out=release-builds
 
