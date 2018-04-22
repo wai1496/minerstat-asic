@@ -16,7 +16,7 @@ NOTICE: This is an **Open**-**source software** that means you can always check 
 
 | Linux | Windows | Mac | Raspberry PI |
 |--|--|--|--|
-| [Download](https://ci.appveyor.com/api/projects/coinscrow/minerstat-asic/artifacts/release-builds/minerstat-asic-linux.zip) | [Download](https://ci.appveyor.com/api/projects/coinscrow/minerstat-asic/artifacts/release-builds/minerstat-asic-windows.zip) | [Download](https://ci.appveyor.com/api/projects/coinscrow/minerstat-asic/artifacts/release-builds/minerstat-asic-mac.zip) | [Download](https://ci.appveyor.com/api/projects/coinscrow/minerstat-asic/artifacts/release-builds/minerstat-raspberry-linux.zip) |
+| <a href='https://ci.appveyor.com/api/projects/coinscrow/minerstat-asic/artifacts/release-builds/minerstat-asic-linux.zip'><img src="https://cdn.rawgit.com/coinscrow/minerstat-asic/master/docs/button_download.svg" width="95%"></a> | <a href='https://ci.appveyor.com/api/projects/coinscrow/minerstat-asic/artifacts/release-builds/minerstat-asic-windows.zip'><img src="https://cdn.rawgit.com/coinscrow/minerstat-asic/master/docs/button_download.svg" width="95%"></a> | <a href='https://ci.appveyor.com/api/projects/coinscrow/minerstat-asic/artifacts/minerstat-asic-mac.7z'><img src="https://cdn.rawgit.com/coinscrow/minerstat-asic/master/docs/button_download.svg" width="95%"></a> | <a href='https://ci.appveyor.com/api/projects/coinscrow/minerstat-asic/artifacts/release-builds/minerstat-asic-raspberry.zip'><img src="https://cdn.rawgit.com/coinscrow/minerstat-asic/master/docs/button_download.svg" width="95%"></a> |
 
 continuous build - up to date with commits
 
