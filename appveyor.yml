@@ -9,15 +9,29 @@ install:
   # Get the latest stable version of Node.js or io.js
   - ps: Install-Product node $env:nodejs_version
   # install modules
+  - npm install -g node-gyp
+  - npm install -g electron-packager
   - npm install
+  - electron-packager . minerstat --overwrite --platform=darwin --arch=x64 --icon=asset/logo.icns --prune=true --out=release-builds
+  - electron-packager . minerstat --overwrite --asar=true --platform=win32 --arch=ia32 --icon=asset/logo.ico --prune=true --out=release-builds --version-string.CompanyName=\"minerstat OÜ\" --version-string.FileDescription=\"ASIC monitor\" --version-string.ProductName=\"minerstat\"
+  - electron-packager . minerstat --overwrite --asar=true --platform=linux --arch=x64 --icon=asset/1024x1024.png --prune=true --out=release-builds
+  - electron-packager . minerstat --overwrite --asar=true --platform=linux --arch=armv7l --icon=asset/1024x1024.png --prune=true --out=release-builds
+
+artifacts:
+  - path: release-builds/minerstat-darwin-x64
+  name: minerstat-asic-osx.zip
+  - path: release-builds/minerstat-win32-ia32
+  name: minerstat-asic-windows.zip
+  - path: release-builds/minerstat-linux-x64
+  name: minerstat-asic-linux.zip
+  - path: release-builds/minerstat-linux-armv7l
+  name: minerstat-asic-raspberry.zip
 
 # Post-install test scripts.
 test_script:
   # Output useful info for debugging.
   - node --version
   - npm --version
-  # run tests
-  - npm test
 
 # Don't actually build.
 build: off
