@@ -6,8 +6,7 @@
 
 ## How it works?
 
-![How it works?](https://cdn.rawgit.com/coinscrow/minerstat-asic/master/docs/howitworks.svg)
-
+<img src="https://cdn.rawgit.com/coinscrow/minerstat-asic/master/docs/howitworks.svg" width="50%">
 
 ## Download
 
