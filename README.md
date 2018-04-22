@@ -4,11 +4,7 @@
 
 **minerstat for ASIC** is mining monitoring and management software for your **Antminer** and/or **Baikal** machines.
 
-<img src="https://cdn.rawgit.com/coinscrow/minerstat-asic/master/docs/minerstat_ui.png" width="80%">
-
-## How it works?
-
-<img src="https://cdn.rawgit.com/coinscrow/minerstat-asic/master/docs/howitworks.svg" width="50%">
+<img src="https://cdn.rawgit.com/coinscrow/minerstat-asic/master/docs/minerstat_ui.png" width="90%">
 
 ## Download
 
@@ -21,6 +17,12 @@ NOTICE: This is an **Open**-**source software** that means you can always check 
 | <a href='https://ci.appveyor.com/api/projects/coinscrow/minerstat-asic/artifacts/release-builds/minerstat-asic-linux.zip'><img alt="Download" src="https://cdn.rawgit.com/coinscrow/minerstat-asic/master/docs/button_download.svg" width="95%"></a> | <a href='https://ci.appveyor.com/api/projects/coinscrow/minerstat-asic/artifacts/release-builds/minerstat-asic-windows.zip'><img alt="Download" src="https://cdn.rawgit.com/coinscrow/minerstat-asic/master/docs/button_download.svg" width="95%"></a> | <a href='https://github.com/coinscrow/minerstat-asic/releases/download/1.0/minerstat-asic-mac.zip'><img alt="Download" src="https://cdn.rawgit.com/coinscrow/minerstat-asic/master/docs/button_download.svg" width="95%"></a> | <a href='https://ci.appveyor.com/api/projects/coinscrow/minerstat-asic/artifacts/release-builds/minerstat-asic-raspberry.zip'><img alt="Download" src="https://cdn.rawgit.com/coinscrow/minerstat-asic/master/docs/button_download.svg" width="95%"></a> |
 
 continuous build - up to date with commits
+
+
+## How it works?
+
+<img src="https://cdn.rawgit.com/coinscrow/minerstat-asic/master/docs/howitworks.svg" width="65%">
+
 
 
 ##  Build (for Developers) <img alt="Status" src="https://ci.appveyor.com/api/projects/status/github/coinscrow/minerstat-asic?branch=master&svg=true" alt="Build">
