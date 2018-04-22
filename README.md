@@ -16,7 +16,7 @@ NOTICE: This is an **Open**-**source software** that means you can always check 
 
 | Linux | Windows | Mac | Raspberry PI |
 |--|--|--|--|
-| Download | Download | Download | Download |
+| [Download](https://ci.appveyor.com/api/projects/coinscrow/minerstat-asic/artifacts/release-builds/minerstat-asic-linux.zip) | [Download](https://ci.appveyor.com/api/projects/coinscrow/minerstat-asic/artifacts/release-builds/minerstat-asic-windows.zip) | [Download](https://ci.appveyor.com/api/projects/coinscrow/minerstat-asic/artifacts/release-builds/minerstat-asic-mac.zip) | [Download](https://ci.appveyor.com/api/projects/coinscrow/minerstat-asic/artifacts/release-builds/minerstat-raspberry-linux.zip) |
 
 continuous build - up to date with commits
 
@@ -28,7 +28,9 @@ This is only needed if you want to compile this software from source code.
  > Install dependencies.
 
  > Open Powershell / Terminal
-
+    
+    npm install -g node-gyp
+    npm install -g electron-packager
     git clone https://github.com/coinscrow/minerstat-asic/
     npm install
     npm start
