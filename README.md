@@ -37,13 +37,13 @@ This is only needed if you want to compile this software from source code.
 
 ### Create executable
 
-LINUX `electron-packager . minerstat --overwrite --asar=true --platform=linux --arch=x64 --icon=asset/1024x1024.png --prune=true --out=release-builds`
+LINUX `npm run-script package-linux`
 
-WINDOWS `electron-packager . minerstat --overwrite --asar=true --platform=win32 --arch=ia32 --icon=asset/logo.ico --prune=true --out=release-builds --version-string.CompanyName=\"minerstat OÜ\" --version-string.FileDescription=\"ASIC monitor\" --version-string.ProductName=\"minerstat\"`
+WINDOWS `npm run-script package-win`
 
-MAC  `electron-packager . minerstat --overwrite --platform=darwin --arch=x64 --icon=asset/logo.icns --prune=true --out=release-builds`
+MAC  `npm run-script package-mac`
 
-RASPBERRY PI `electron-packager . minerstat --overwrite --asar=true --platform=linux --arch=armv7l --icon=asset/1024x1024.png --prune=true --out=release-builds`
+RASPBERRY PI `npm run-script package-pi`
 
 
 
