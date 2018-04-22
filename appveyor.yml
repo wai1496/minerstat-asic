@@ -19,13 +19,21 @@ install:
 
 artifacts:
 - path: release-builds/minerstat-darwin-x64
-  name: minerstat-asic-osx.zip
+  name: minerstat-asic-osx
 - path: release-builds/minerstat-win32-ia32
-  name: minerstat-asic-windows.zip
+  name: minerstat-asic-windows
 - path: release-builds/minerstat-linux-x64
-  name: minerstat-asic-linux.zip
+  name: minerstat-asic-linux
 - path: release-builds/minerstat-linux-armv7l
-  name: minerstat-asic-raspberry.zip
+  name: minerstat-asic-raspberry
+
+deploy:
+- provider: GitHub
+  auth_token:
+    secure: 8+BupHQlNXPEwEnEiWuiYCZhaqrRmxys2RnfVbMjttXFMeMIFkzKJPRbDMJlE+Jy
+  repository: coinscrow/minerstat-asic
+  prerelease: true
+  force_update: true
 
 # Post-install test scripts.
 test_script:
