@@ -13,7 +13,6 @@ before_deploy:
   - zip -r minerstat-asic-mac.zip .
   - git config --local user.name "coinscrow"
   - git config --local user.email "hello@coinscrow.io"
-  - git tag 1.0
 deploy:
   provider: releases
   prerelease: true
