@@ -1,6 +1,6 @@
 ![How it works?](https://cdn.rawgit.com/coinscrow/minerstat-asic/master/docs/logo_full.svg)
 
-# minerstat for ASIC <img src="https://ci.appveyor.com/api/projects/status/github/coinscrow/minerstat-asic?branch=master&svg=true" alt="Build">
+# minerstat for ASIC
 
 **minerstat for ASIC** is mining monitoring and management software for your **Antminer** and/or **Baikal** machines.
 
@@ -21,7 +21,7 @@ NOTICE: This is an **Open**-**source software** that means you can always check 
 continuous build - up to date with commits
 
 
-##  Build (for Developers)
+##  Build (for Developers) <img src="https://ci.appveyor.com/api/projects/status/github/coinscrow/minerstat-asic?branch=master&svg=true" alt="Build">
 
 This is only needed if you want to compile this software from source code.
 
