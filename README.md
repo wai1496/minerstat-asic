@@ -1,8 +1,10 @@
-![How it works?](https://cdn.rawgit.com/coinscrow/minerstat-asic/master/docs/logo_full.svg)
+![minerstat logo](https://cdn.rawgit.com/coinscrow/minerstat-asic/master/docs/logo_full.svg)
 
 # minerstat for ASIC
 
 **minerstat for ASIC** is mining monitoring and management software for your **Antminer** and/or **Baikal** machines.
+
+<img src="https://cdn.rawgit.com/coinscrow/minerstat-asic/master/docs/minerstat_ui.png" width="80%">
 
 ## How it works?
 
@@ -33,7 +35,8 @@ This is only needed if you want to compile this software from source code.
     npm install -g electron-packager
     git clone https://github.com/coinscrow/minerstat-asic/
     npm install
-    npm start
+
+`npm start` to see live output and start front-end.
 
 ### Create executable
 
