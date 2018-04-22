@@ -20,7 +20,7 @@ deploy:
   api_key:
     secure: IGH/clCSkJPbW1pZ4C7eJww6wdjH3J3bc4O2/4jFyFfqXWhVbjrGtmr4rr0LJ4rlu5LCbsUnipi+pAASxdaJt2G0BmOMKIQgShLS2Yqe0MhAJeXubiZfF++b+OHaJ0RaK2POB8XKvD1HEIyHlYwYu7pOtHga/fRS2sVhj8RK3B5Cy3gtU0xYutpK8oKeUwHI9YtIsFVxs10Tidu09GArM6bD2mWG9oOzjoeT0gSCFRYDFoTHRTnWY7HB3iuuqoSjk4Us1N1axc/ZvbPIUPo+5jY5pGFxtddPqOctD8zUAQhGyZqy0EWo/jY00pDwc3Uup5h0G60a6K/FOjgculHLKZKWjbmnPzWJNH5W1ouEwLULj31mwU8qYxwojLt6Ux3eZ+yUbPtf6agZrbvKNkbx80z7lWxWDrc0E0L0clQIsSVCoBL/nnwW01Ee3OBHm19kwMxDZO9k4vHjbbhKRpBOkfz/BdubYhaHvXCkAAO0t3QYs8G6FagZOFHci/tdzVeINRn7kzm/kcajJkaNQgWwYUC2MygQsDbPx/LaR9j/weTlYR6KnHM92T8NgL6wtoP2CNWvsZZwBCatS8mQHIeVl6LT/wS6OTLfXPHQVjEfx4Ae9Y4cJ2QXT9sJlDZqMTAM2Epr4+HDJ7Ft63Bf7nL0KRGgOBNS36WvC3bS3RCZqh0=
   file_glob: true
-  file: "release-builds/minerstat-asic-mac.zip"
+  file: "release-builds/minerstat-darwin-x64/minerstat-asic-mac.zip"
   name: continuous build - up to date with commits
   body: Automated release from Travis CI with added files from AppVeyor build
   tag_name: 1.0
