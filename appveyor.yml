@@ -18,13 +18,13 @@ install:
   - electron-packager . minerstat --overwrite --asar=true --platform=linux --arch=armv7l --icon=asset/1024x1024.png --prune=true --out=release-builds
 
 artifacts:
-  - path: release-builds/minerstat-darwin-x64
+- path: release-builds/minerstat-darwin-x64
   name: minerstat-asic-osx.zip
-  - path: release-builds/minerstat-win32-ia32
+- path: release-builds/minerstat-win32-ia32
   name: minerstat-asic-windows.zip
-  - path: release-builds/minerstat-linux-x64
+- path: release-builds/minerstat-linux-x64
   name: minerstat-asic-linux.zip
-  - path: release-builds/minerstat-linux-armv7l
+- path: release-builds/minerstat-linux-armv7l
   name: minerstat-asic-raspberry.zip
 
 # Post-install test scripts.
