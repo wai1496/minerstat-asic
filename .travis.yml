@@ -25,5 +25,5 @@ deploy:
   prerelease: true
   draft: false
   on:
-    tags: true
+    tags: false
     branch: master
