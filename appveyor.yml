@@ -2,7 +2,7 @@
 
 image:
 - Visual Studio 2015
-- Ubuntu
+- ubuntu
 
 # Test against these versions of Io.js and Node.js.
 environment:
