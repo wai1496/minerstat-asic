@@ -1,9 +1,5 @@
 # http://www.appveyor.com/docs/appveyor-yml
 
-image:
-- Visual Studio 2015
-- ubuntu
-
 # Test against these versions of Io.js and Node.js.
 environment:
   nodejs_version: "9"
@@ -22,10 +18,10 @@ install:
   - sh: electron-packager . minerstat --overwrite --asar=true --platform=linux --arch=armv7l --icon=asset/1024x1024.png --prune=true --out=release-builds
 
 artifacts:
-- path: release-builds/minerstat-darwin-x64
-  name: minerstat-asic-osx
 - path: release-builds/minerstat-win32-ia32
   name: minerstat-asic-windows
+- path: release-builds/minerstat-darwin-x64
+  name: minerstat-asic-osx
 - path: release-builds/minerstat-linux-x64
   name: minerstat-asic-linux
 - path: release-builds/minerstat-linux-armv7l
