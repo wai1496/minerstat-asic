@@ -21,7 +21,7 @@ continuous build - up to date with commits
 
 ## How it works?
 
-<img src="https://cdn.rawgit.com/coinscrow/minerstat-asic/master/docs/howitworks.svg" width="65%">
+<img src="https://cdn.rawgit.com/coinscrow/minerstat-asic/master/docs/works.svg" width="65%">
 
 
 
