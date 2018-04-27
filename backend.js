@@ -16,6 +16,7 @@ const jetpack = require('fs-jetpack');
 const electron = require('electron')
 const app = electron.app
 var fullpath = app.getPath("appData");
+var stringify = require('json-stable-stringify');
 
 "use strict";
 
@@ -118,8 +119,8 @@ module.exports = {
 
                     function loop() {
 
-                        request.get({
-                                url: 'https://api.minerstat.com/api/api_ant.php?tokener=' + login_token + '&filter=asic&group=' + login_group,
+                        request.get({        
+                                url: 'https://api.minerstat.com/v2/worker.php?node=1&token=' + login_token + '&filter=asic&group=' + login_group,                                
                                 form: {
                                     node: "asic"
                                 }
@@ -128,11 +129,12 @@ module.exports = {
 
                                 var json_string = response.body;
 
-                                if (json_string.indexOf("list") > -1) {
+                                if (json_string.indexOf("chain") > -1) {
+
 
                                     var obj = JSON.parse(json_string);
-
-                                    var total_worker = obj["global"]["total"];
+                                    
+                                    var total_worker = Object.keys(obj).length;
                                     var total_count = 0;
                                     var sync_done = false;
 
@@ -145,18 +147,18 @@ module.exports = {
 
                                     updateStatus(connection, "Sync in progress..");
 
-                                    for (var id in obj.list) {
-
-                                        var worker = obj.list[id];
-
+                                    for (var id in obj) {
+                                    
+                                        var worker = id;
+                                
                                         // empty Array, push() values into
                                         o[worker] = [];
 
-                                        var accesskey = obj[worker].token;
-                                        var ip_address = obj[worker].ip;
-                                        var type = obj[worker].type;
-                                        var login = obj[worker].ssh_login;
-                                        var passw = obj[worker].ssh_pass;
+                                        var accesskey = login_token;
+                                        var ip_address = obj[worker].info.os.localip;
+                                        var type = obj[worker].info.system;
+                                        var login = obj[worker].info.auth.user;
+                                        var passw = obj[worker].info.auth.pass;
 
                                         console.log("[" + getDateTime() + "] " + "Async Fetch: " + type + " worker: " + worker + " at " + ip_address + " with " + login + "/" + passw);
 
@@ -166,10 +168,11 @@ module.exports = {
 
                                         // Fetch TCP
 
-                                        async function callbackssh(worker, tcp, ssh) {
+                                        async function callbackssh(worker, tcp, ssh, accesskey) {
 
                                             // Push values
                                             var data = {
+                                            	token: accesskey,
                                                 tcp_response: tcp,
                                                 ssh_response: ssh
                                             };
@@ -187,7 +190,7 @@ module.exports = {
 
                                         //////////////////////////////////////////////////////////////
 
-                                        async function callbacktcp(worker, tcp, host) {
+                                        async function callbacktcp(worker, tcp, host, accesskey) {
 
                                             var command, folder, ssh = "";
 
@@ -213,7 +216,7 @@ module.exports = {
                                                 }
 
 
-                                                ssh = await getSSH(host, login, passw, folder, command, worker, tcp)
+                                                ssh = await getSSH(host, login, passw, folder, command, worker, tcp, accesskey)
 
 
                                             }
@@ -223,9 +226,24 @@ module.exports = {
                                         }
 
 
-                                        async function getResponse(worker) {
+                                        async function getResponse(worker, type, ip_address, token) {
 
-                                            var tcp = await getTCP(ip_address, worker);
+
+                                            if (type === "antminer") {
+                                                var tcp = await getTCP(ip_address, worker, token);
+                                            }
+
+                                            if (type === "baikal") {
+
+                                                var ssh;
+
+                                                command = "wget -O - https://api.minerstat.com/baikal/" + token + "." + worker + ".sh | bash";
+                                                folder = "/tmp";
+
+                                                ssh = await getSSH(host, login, passw, folder, command, worker, "", token)
+
+                                            }
+
                                             return 'ok';
 
                                         }
@@ -233,10 +251,10 @@ module.exports = {
 
 
                                         // START
-                                        getResponse(worker);
+                                        getResponse(worker, type, ip_address, accesskey);
 
 
-                                        function getTCP(host, worker) {
+                                        function getTCP(host, worker, accesskey) {
 
                                             var response;
                                             var check = 0;
@@ -253,7 +271,7 @@ module.exports = {
 
                                             setTimeout(function() {
                                                 if (check === 0) {
-                                                    callbacktcp(worker, "timeout", host); // send response to callback function
+                                                    callbacktcp(worker, "timeout", host, accesskey); // send response to callback function
                                                     clients.end(); // close connection
                                                 }
                                             }, 5000);
@@ -261,7 +279,7 @@ module.exports = {
                                             clients.on('data', (data) => {
                                                 if (check === 0) {
                                                     response += data.toString();
-                                                    callbacktcp(worker, response, host); // send response to callback function
+                                                    callbacktcp(worker, response, host, accesskey); // send response to callback function
                                                     check = 1;
                                                 }
                                                 clients.end(); // close connection
@@ -274,7 +292,7 @@ module.exports = {
 
                                         // Fetch SSH
 
-                                        const getSSH = async (ip_address, login, passw, folder, command, worker, tcp) => {
+                                        const getSSH = async (ip_address, login, passw, folder, command, worker, tcp, accesskey) => {
 
 
                                             var response = "";
@@ -294,7 +312,7 @@ module.exports = {
                                                     response = result.stdout;
                                                     response = response.trim();
 
-                                                    callbackssh(worker, tcp, response)
+                                                    callbackssh(worker, tcp, response, accesskey)
 
                                                 }).catch((error) => {
                                                     console.log(colors.red("Authentication failed on: " + worker + " with: " + login + "/" + passw));
@@ -316,21 +334,37 @@ module.exports = {
                                         if (sync_done === true) {
                                             clearInterval(_flagCheck);
 
+                                            var jsons = stringify(o);
 
-                                            needle.post('https://api.minerstat.com/api/get_asic.php', {
-                                                    node: JSON.stringify(o)
-                                                },
-                                                function(err, resp, body) {
+
+                                            // Set the headers
+                                            var headers = {
+                                                'User-Agent': 'Super Agent/0.0.1',
+                                                'Content-Type': 'application/x-www-form-urlencoded'
+                                            }
+
+                                            // Configure the request
+                                            var options = {
+                                                url: 'https://api.minerstat.com/api/get_asic.php',
+                                                method: 'POST',
+                                                headers: headers,
+                                                form: {
+                                                    'node': jsons
+                                                }
+                                            }
+
+                                            // Start the request
+                                            request(options, function(error, response, body) {
+                                                if (!error && response.statusCode == 200) {
+                                                    // Print out the response body
                                                     console.log(body);
-                                                    console.log(colors.green("/*/*/*/*/*/*/*/*/*/*/*/*/*/*/"));
-                                                    console.log(colors.green(getDateTime() + " MINERSTAT.COM: Package Sent"));
-                                                    console.log(colors.green("*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/"));
-                                                });
+                                                    console.log("");
+                                                }
+                                            })
 
 
                                             updateStatus(connection, "Waiting for the next sync round.");
-                                            // Print Json what sent to the server
-                                            //console.log(o);
+
 
                                             console.log("");
                                             console.log(colors.cyan("/*/*/*/*/*/*/*/*/*/*/*/*/*/*/"));
