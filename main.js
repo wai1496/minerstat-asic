@@ -77,7 +77,10 @@ function createWindow() {
         slashes: true
     }))
 
-
+	// reload the window when crashed.
+  	mainWindow.webContents.on('crashed', () => {
+  	  mainWindow.reload();
+  	});
 
     // Emitted when the window is closed.
     mainWindow.on('closed', function() {
