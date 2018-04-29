@@ -50,12 +50,12 @@ Open Terminal / SSH
     curl -sL https://deb.nodesource.com/setup_9.x -o nodesource_setup.sh
     sudo bash nodesource_setup.sh
     # Install Git & NodeJS
-    sudo apt-get install nodejs git npm
+    sudo apt-get install nodejs git
     
 Now you are ready to clone and install minerstat ASIC  
 
-    npm install -g node-gyp
-    npm install -g electron-packager
+    sudo npm install -g node-gyp
+    sudo npm install -g electron-packager
     git clone https://github.com/coinscrow/minerstat-asic/
     cd minerstat-asic
     npm install
