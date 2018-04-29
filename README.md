@@ -29,26 +29,10 @@ continuous build - up to date with commits
 
 This is only needed if you want to compile this software from source code.
 
- > Install dependencies.
 
- > Open Powershell / Terminal
-    
-    npm install -g node-gyp
-    npm install -g electron-packager
-    git clone https://github.com/coinscrow/minerstat-asic/
-    npm install
 
-`npm start` to see live output and start front-end.
+You can find the build tutorial [here](https://github.com/coinscrow/minerstat-asic/blob/master/docs/build.md) ...
 
-### Create executable
-
-LINUX `npm run-script package-linux`
-
-WINDOWS `npm run-script package-win`
-
-MAC  `npm run-script package-mac`
-
-RASPBERRY PI `npm run-script package-pi`
 
 
 
