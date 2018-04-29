@@ -4,6 +4,7 @@
 var async = require('neo-async');
 var backend = require('./backend');
 var colors = require('colors');
+var exec = require('child_process').exec
 var fs = require('fs');
 var lasterror = new Date;
 var request = require('request');
@@ -14,22 +15,8 @@ const url = require('url');
 var ssh2 = new node_ssh();
 const jetpack = require('fs-jetpack');
 
+var error = false;
 
-/*
-	ERROR HANDLING
-*/
-
-let mainWindow
-
-process.on('uncaughtException', function(err) {
-    console.log('Caught exception: ' + err);
-    //restart(lasterror);
-});
-
-process.on('unhandledRejection', (reason, promise) => {
-    console.log('Unhandled Rejection at:', reason.stack || reason)
-    //restart(lasterror);
-})
 
 /*
 	ELECTRON
@@ -38,6 +25,24 @@ const electron = require('electron')
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow // Module to create native browser window.
 var fullpath = app.getPath("appData");
+
+/*
+	ERROR HANDLING
+*/
+let mainWindow
+
+process.on('uncaughtException', function(err) {
+    console.log('Caught exception: ' + err);
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+    console.log('Unhandled Rejection at:', reason.stack || reason)
+    if (error === false) {
+        error = true;
+        //app.relaunch()
+        //app.exit()
+    }
+})
 
 
 function createWindow() {
@@ -106,7 +111,6 @@ app.on('activate', function() {
         createWindow()
     }
 })
-
 
 
 /*
