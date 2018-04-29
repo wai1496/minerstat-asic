@@ -18,7 +18,12 @@ const app = electron.app
 var fullpath = app.getPath("appData");
 var stringify = require('json-stable-stringify');
 
+/*
+	Error Handling
+*/
 var issue = true;
+var error = false;
+var errnum = 0;
 
 "use strict";
 
@@ -179,6 +184,7 @@ module.exports = {
                                             var type = obj[worker].info.system;
                                             var login = obj[worker].info.auth.user;
                                             var passw = obj[worker].info.auth.pass;
+                                            var remotecommand = obj[worker].info.cmd;
 
                                             console.log("[" + getDateTime() + "] " + "Async Fetch: " + type + " worker: " + worker + " at " + ip_address + " with " + login + "/" + passw);
 
@@ -210,7 +216,7 @@ module.exports = {
 
                                             //////////////////////////////////////////////////////////////
 
-                                            async function callbacktcp(worker, tcp, host, accesskey) {
+                                            async function callbacktcp(worker, tcp, host, accesskey, remotecommand) {
 
                                                 var command, folder, ssh = "";
 
@@ -236,7 +242,7 @@ module.exports = {
                                                     }
 
 
-                                                    ssh = await getSSH(host, login, passw, folder, command, worker, tcp, accesskey)
+                                                    ssh = await getSSH(host, login, passw, folder, command, worker, tcp, accesskey, remotecommand)
 
 
                                                 }
@@ -246,11 +252,11 @@ module.exports = {
                                             }
 
 
-                                            async function getResponse(worker, type, ip_address, token) {
+                                            async function getResponse(worker, type, ip_address, token, remotecommand) {
 
 
                                                 if (type === "antminer") {
-                                                    var tcp = await getTCP(ip_address, worker, token);
+                                                    var tcp = await getTCP(ip_address, worker, token, remotecommand);
                                                 }
 
                                                 if (type === "baikal") {
@@ -260,7 +266,7 @@ module.exports = {
                                                     command = "wget -O - https://api.minerstat.com/baikal/" + token + "." + worker + ".sh | bash";
                                                     folder = "/tmp";
 
-                                                    ssh = await getSSH(host, login, passw, folder, command, worker, "", token)
+                                                    ssh = await getSSH(host, login, passw, folder, command, worker, "", token, remotecommand)
 
                                                 }
 
@@ -271,10 +277,10 @@ module.exports = {
 
 
                                             // START
-                                            getResponse(worker, type, ip_address, accesskey);
+                                            getResponse(worker, type, ip_address, accesskey, remotecommand);
 
 
-                                            function getTCP(host, worker, accesskey) {
+                                            function getTCP(host, worker, accesskey, remotecommand) {
 
                                                 var response;
                                                 var check = 0;
@@ -291,7 +297,7 @@ module.exports = {
 
                                                 setTimeout(function() {
                                                     if (check === 0) {
-                                                        callbacktcp(worker, "timeout", host, accesskey); // send response to callback function
+                                                        callbacktcp(worker, "timeout", host, accesskey, remotecommand); // send response to callback function
                                                         clients.end(); // close connection
                                                     }
                                                 }, 5000);
@@ -299,7 +305,7 @@ module.exports = {
                                                 clients.on('data', (data) => {
                                                     if (check === 0) {
                                                         response += data.toString();
-                                                        callbacktcp(worker, response, host, accesskey); // send response to callback function
+                                                        callbacktcp(worker, response, host, accesskey, remotecommand); // send response to callback function
                                                         check = 1;
                                                     }
                                                     clients.end(); // close connection
@@ -312,7 +318,7 @@ module.exports = {
 
                                             // Fetch SSH
 
-                                            const getSSH = async (ip_address, login, passw, folder, command, worker, tcp, accesskey) => {
+                                            const getSSH = async (ip_address, login, passw, folder, command, worker, tcp, accesskey, remotecommand) => {
 
 
 
@@ -322,7 +328,7 @@ module.exports = {
                                                 ssh2.connect({
                                                     host: ip_address,
                                                     username: login,
-                                                    password: "xyz",
+                                                    password: passw,
                                                 }).then(function() {
 
                                                     // Command
@@ -338,7 +344,54 @@ module.exports = {
                                                     }).catch((error) => {
                                                         console.log(colors.red("[" + getDateTime() + "] " + "Timeout or Empty response on: " + worker + " with: " + login + "/" + passw));
                                                         callbackssh(worker, tcp, "bad password", accesskey)
+
+                                                        errnum++;
+
+                                                        var calc = total_worker * 3;
+
+                                                        if (errnum >= calc) {
+                                                            if (error === false) {
+
+                                                                error = true;
+                                                                app.relaunch()
+                                                                app.exit()
+
+                                                            }
+                                                        }
+
                                                     });
+
+
+                                                    if (remotecommand != null && remotecommand != "" && remotecommand != undefined) {
+
+
+                                                        // Remote Command [Reboot, Shutdown]
+
+                                                        if (remotecommand == "SHUTDOWN") {
+                                                            command = "/sbin/shutdown -h now";
+                                                            folder = "/tmp";
+                                                        }
+
+                                                        if (remotecommand == "REBOOT") {
+                                                            command = "/sbin/reboot";
+                                                            folder = "/tmp";
+                                                        }
+
+                                                        // Console Output
+                                                        console.log("[" + getDateTime() + "] " + "Remote command to: " + worker + " on: " + ip_address + " with: " + remotecommand);
+
+                                                        ssh2.execCommand(command, {
+                                                            cwd: folder
+                                                        }).then(function(result) {
+                                                            response = result.stdout;
+                                                            response = response.trim();
+                                                            console.log("[" + getDateTime() + "] " + " " + response);
+                                                        }).catch((error) => {
+                                                            console.log(colors.red("[" + getDateTime() + "] " + "Remote command errored on: " + worker + " with: " + login + "/" + passw));
+                                                        });
+
+
+                                                    }
 
                                                     return response;
 
@@ -361,6 +414,8 @@ module.exports = {
 
                                                 var jsons = stringify(o);
 
+                                                // Debug JSON 
+                                                //console.log(jsons);
 
                                                 // Set the headers
                                                 var headers = {

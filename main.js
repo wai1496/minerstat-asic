@@ -15,6 +15,9 @@ const url = require('url');
 var ssh2 = new node_ssh();
 const jetpack = require('fs-jetpack');
 
+/*
+	Error Handling
+*/
 var error = false;
 
 
