@@ -154,7 +154,7 @@ module.exports = {
 
                                     var json_string = response.body;
 
-                                    if (json_string.indexOf("chain") > -1) {
+                                    if (json_string.indexOf("asic") > -1) {
 
 
                                         var obj = JSON.parse(json_string);
