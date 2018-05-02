@@ -4,6 +4,8 @@
 
 **minerstat for ASIC** is mining monitoring and management software for your **Antminer** and/or **Baikal** machines.
 
+This software **only works with [my.minerstat.com](https://my.minerstat.com) interface**, it's **not in sync** with our old system
+
 <img src="https://cdn.rawgit.com/coinscrow/minerstat-asic/master/docs/minerstat_ui.png" width="90%">
 
 ## Download
