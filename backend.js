@@ -8,7 +8,6 @@ var fs = require('fs');
 var node_ssh = require('node-ssh');
 var request = require('request');
 const nets = require('net');
-var ssh2 = new node_ssh();
 var await = require('await');
 var needle = require('needle');
 var async = require('neo-async');
@@ -175,15 +174,15 @@ module.exports = {
 													// PATH & COMMANDS
 													if(type == "antminer") {
 														if(command.indexOf("cgminer") > -1) {
-															command = command + "wget -O cgminer.conf http://static.minerstat.farm/proxy.php?token=" + accesskey + "&worker=" + worker + " && sleep 3 && echo done && /sbin/reboot";
+															command = command + "wget -O cgminer.conf 'http://static.minerstat.farm/proxy.php?token=" + accesskey + "&worker=" + worker + "' && sleep 3 && echo done && /sbin/reboot";
 														}
 														if(command.indexOf("bmminer") > -1) {
-															command = command + "wget -O bmminer.conf http://static.minerstat.farm/proxy.php?token=" + accesskey + "&worker=" + worker + " && sleep 3 && echo done && /sbin/reboot";
+															command = command + "wget -O bmminer.conf 'http://static.minerstat.farm/proxy.php?token=" + accesskey + "&worker=" + worker + "' && sleep 3 && echo done && /sbin/reboot";
 														}
 														folder = "/config";
 													}
 													if(type == "baikal") {
-														command = command + "wget -O miner.conf http://static.minerstat.farm/proxy.php?token=" + accesskey + "&worker=" + worker + " && sleep 3 && echo done && /sbin/reboot";
+														command = command + "wget -O miner.conf 'http://static.minerstat.farm/proxy.php?token=" + accesskey + "&worker=" + worker + "' && sleep 3 && echo done && /sbin/reboot";
 														folder = "/opt/scripta/etc";
 													}
 												}
@@ -236,6 +235,7 @@ module.exports = {
 										// Fetch SSH
 										async function getSSH(ip_address, login, passw, folder, command, worker, tcp, accesskey, remotecommand, isconfig, type) {
 											var response, dump = "";
+											var ssh2 = new node_ssh();
 											if(command === undefined) {
 												command = "echo recovery;"
 												folder = "/tmp";
