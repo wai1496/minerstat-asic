@@ -1,7 +1,7 @@
 {
   "name": "minerstat-asic",
-  "version": "1.0.1",
-  "description": "Antminer & Baikal Monitor",
+  "version": "1.0.2",
+  "description": "Antminer, Baikal, DragonMint Monitor",
   "main": "main.js",
   "scripts": {
     "start": "electron .",

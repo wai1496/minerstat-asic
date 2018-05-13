@@ -168,7 +168,7 @@ module.exports = {
                                         }
                                     }
                                     //////////////////////////////////////////////////////////////
-                                    async function callbacktcp(worker, tcp, host, accesskey, remotecommand, isconfig, type) {
+                                    async function callbacktcp(worker, tcp, host, accesskey, remotecommand, isconfig, type, login, passw) {
                                         var command, folder, ssh = "";
                                         if (tcp == "timeout" && remotecommand != "CONFIG") {
                                             console.log("[" + getDateTime() + "] " + worker + " - SSH Skipped - Reason: Worker inactive");
@@ -204,9 +204,9 @@ module.exports = {
                                             ssh = await getSSH(host, login, passw, folder, command, worker, tcp, accesskey, remotecommand, isconfig, type)
                                         }
                                     }
-                                    async function getResponse(worker, type, ip_address, token, remotecommand, isconfig, type) {
+                                    async function getResponse(worker, type, ip_address, token, remotecommand, isconfig, type, login, passw) {
                                         if (type === "antminer") {
-                                            var tcp = await getTCP(ip_address, worker, token, remotecommand, isconfig, type);
+                                            var tcp = await getTCP(ip_address, worker, token, remotecommand, isconfig, type, login, passw);
                                         }
                                         if (type === "dragonmint") {
                                             var tcp = await getDragon(token, ip_address, worker, login, passw);
@@ -220,7 +220,7 @@ module.exports = {
                                         return 'ok';
                                     }
                                     // START
-                                    getResponse(worker, type, ip_address, accesskey, remotecommand, isconfig, type);
+                                    getResponse(worker, type, ip_address, accesskey, remotecommand, isconfig, type, login, passw);
 									
 									// FETCH DRAGONMINT HTTP WOTH BASIC (BASE64) AUTH
                                     function getDragon(accesskey, ip_address, worker, login, passw) {
@@ -242,7 +242,7 @@ module.exports = {
 
                                     }
 								    // Fetch TCP
-                                    function getTCP(host, worker, accesskey, remotecommand, isconfig, type) {
+                                    function getTCP(host, worker, accesskey, remotecommand, isconfig, type, login, passw) {
                                         var response;
                                         var check = 0;
                                         const nets = require('net');
@@ -256,14 +256,14 @@ module.exports = {
                                         clients.on('end', () => {});
                                         setTimeout(function() {
                                             if (check === 0) {
-                                                callbacktcp(worker, "timeout", host, accesskey, remotecommand, isconfig, type); // send response to callback function
+                                                callbacktcp(worker, "timeout", host, accesskey, remotecommand, isconfig, type, login, passw); // send response to callback function
                                                 clients.end(); // close connection
                                             }
                                         }, 5000);
                                         clients.on('data', (data) => {
                                             if (check === 0) {
                                                 response += data.toString();
-                                                callbacktcp(worker, response, host, accesskey, remotecommand, isconfig, type); // send response to callback function
+                                                callbacktcp(worker, response, host, accesskey, remotecommand, isconfig, type, login, passw); // send response to callback function
                                                 check = 1;
                                             }
                                             clients.end(); // close connection
