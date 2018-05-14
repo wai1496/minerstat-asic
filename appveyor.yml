@@ -32,8 +32,8 @@ deploy:
   tag: 1.0
   release: continuous build - up to date with commits
   auth_token:
-    secure: 8+BupHQlNXPEwEnEiWuiYCZhaqrRmxys2RnfVbMjttXFMeMIFkzKJPRbDMJlE+Jy
-  repository: coinscrow/minerstat-asic
+    secure: vdH/WFjpv+yuUkzohJhhxPD5EtAhnBoGc0p/7+mghQSM2Grza+NZlxgN3sFux1DT
+  repository: minerstat/minerstat-asic
   prerelease: true
   force_update: true
 
