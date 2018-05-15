@@ -13,7 +13,7 @@ before_deploy:
   - zip -r minerstat-asic-mac.zip .
   - git config --local user.name "coinscrow"
   - git config --local user.email "hello@coinscrow.io"
-  - if [ -z "$TRAVIS_TAG" ] ; then TRAVIS_TAG=1.0; fi
+  - if [ -z "$TRAVIS_TAG" ] ; then TRAVIS_TAG=latest; fi
 deploy:
   provider: releases
   api_key:
