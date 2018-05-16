@@ -352,7 +352,7 @@ module.exports = {
                                                     //console.log("[" + getDateTime() + "] " + " " + response);
                                                     // Set the headers
                                                     var headers = {
-                                                        'User-Agent': 'Super Agent/0.0.1',
+                                                        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0',
                                                         'Content-Type': 'application/x-www-form-urlencoded'
                                                     }
                                                     // Configure the request
@@ -395,15 +395,15 @@ module.exports = {
                                         // Debug JSON 
                                         // console.log(jsons);
                                         // Set the headers
-                                        var headers = {
-                                            'User-Agent': 'Super Agent/0.0.1',
-                                            'Content-Type': 'application/x-www-form-urlencoded'
+                                        var headersN = {
+                                            'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0',
+                                            'Content-Type': 'application/json; charset=utf-8'
                                         }
                                         // Configure the request
                                         var options = {
-                                            url: 'https://api.minerstat.com/api/get_asic.php',
+                                            url: 'http://minerstat.farm/get_asic.php',
                                             method: 'POST',
-                                            headers: headers,
+                                            headers: headersN,
                                             form: {
                                                 'node': jsons
                                             }
