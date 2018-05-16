@@ -157,7 +157,7 @@ module.exports = {
                                         // Push values
                                         var data = {
                                             token: accesskey,
-                                            tcp_response: tcp.replace(/[^a-zA-Z ]/g, ""),
+                                            tcp_response: tcp.replace(/[^a-zA-Z,= ]/g, ""),
 					    ssh_response: ssh.trim()
                                         };
                                         o[worker].push(data);
