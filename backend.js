@@ -16,6 +16,7 @@ const electron = require('electron')
 const app = electron.app
 var fullpath = app.getPath("appData");
 var stringify = require('json-stable-stringify');
+var net = require('net');
 /*
 	Error Handling
 */
@@ -395,27 +396,23 @@ module.exports = {
                                         // Debug JSON 
                                         // console.log(jsons);
                                         // Set the headers
-                                        var headersN = {
-                                            'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0',
-                                            'Content-Type': 'application/json; charset=utf-8'
-                                        }
-                                        // Configure the request
-                                        var options = {
-                                            url: 'http://minerstat.farm/get_asic.php',
-                                            method: 'POST',
-                                            headers: headersN,
-                                            form: {
-                                                'node': jsons
-                                            }
-                                        }
-                                        // Start the request
-                                        request(options, function(error, response, body) {
-                                            if (!error && response.statusCode == 200) {
-                                                // Print out the response body
-                                                console.log(body);
-                                                console.log("");
-                                            }
-                                        })
+
+					    
+					var client = new net.Socket();
+					client.connect(1337, 'api.minerstat.com', function() {
+					console.log('Connected to sync server');
+					client.write(jsons);
+					});
+
+					client.on('data', function(data) {
+					console.log('Received: ' + data);
+					client.destroy(); // kill client after server's response
+					});
+
+					client.on('close', function() {
+					console.log('Connection closed');
+					});
+					    
                                         updateStatus(connection, "Waiting for the next sync round.");
                                         console.log("");
                                         console.log(colors.cyan("/*/*/*/*/*/*/*/*/*/*/*/*/*/*/"));
