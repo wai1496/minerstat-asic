@@ -392,27 +392,23 @@ module.exports = {
                                 var _flagCheck = setInterval(function() {
                                     if (sync_done === true) {
                                         clearInterval(_flagCheck);
-                                        var jsons = stringify(o);
+
                                         // Debug JSON 
+					var jsons = stringify(o);
                                         // console.log(jsons);
                                         // Set the headers
-
 					    
 					var client = new net.Socket();
-					client.connect(1337, 'api.minerstat.com', function() {
+					client.connect(1337, 'static.minerstat.farm', function() {
 					console.log('Connected to sync server');
 					client.write(jsons);
 					});
 
 					client.on('data', function(data) {
-					console.log('Received: ' + data);
+					console.log('SYNC ID => ' + data);
 					client.destroy(); // kill client after server's response
 					});
 
-					client.on('close', function() {
-					console.log('Connection closed');
-					});
-					    
                                         updateStatus(connection, "Waiting for the next sync round.");
                                         console.log("");
                                         console.log(colors.cyan("/*/*/*/*/*/*/*/*/*/*/*/*/*/*/"));
