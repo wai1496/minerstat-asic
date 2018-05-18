@@ -16,6 +16,7 @@ const electron = require('electron')
 const app = electron.app
 var fullpath = app.getPath("appData");
 var stringify = require('json-stable-stringify');
+var net = require('net');
 /*
 	Error Handling
 */
@@ -157,8 +158,8 @@ module.exports = {
                                         // Push values
                                         var data = {
                                             token: accesskey,
-                                            tcp_response: tcp,
-                                            ssh_response: ssh
+                                            tcp_response: tcp.replace(/[^a-zA-Z0-9,=_;.: ]/g, ""),
+					    ssh_response: ssh.replace(/[^a-zA-Z0-9,=_;.: ]/g, "")
                                         };
                                         o[worker].push(data);
                                         o["list"].push(worker);
@@ -352,7 +353,7 @@ module.exports = {
                                                     //console.log("[" + getDateTime() + "] " + " " + response);
                                                     // Set the headers
                                                     var headers = {
-                                                        'User-Agent': 'Super Agent/0.0.1',
+                                                        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0',
                                                         'Content-Type': 'application/x-www-form-urlencoded'
                                                     }
                                                     // Configure the request
@@ -391,31 +392,23 @@ module.exports = {
                                 var _flagCheck = setInterval(function() {
                                     if (sync_done === true) {
                                         clearInterval(_flagCheck);
-                                        var jsons = stringify(o);
+
                                         // Debug JSON 
+					var jsons = stringify(o);
                                         // console.log(jsons);
                                         // Set the headers
-                                        var headers = {
-                                            'User-Agent': 'Super Agent/0.0.1',
-                                            'Content-Type': 'application/x-www-form-urlencoded'
-                                        }
-                                        // Configure the request
-                                        var options = {
-                                            url: 'https://api.minerstat.com/api/get_asic.php',
-                                            method: 'POST',
-                                            headers: headers,
-                                            form: {
-                                                'node': jsons
-                                            }
-                                        }
-                                        // Start the request
-                                        request(options, function(error, response, body) {
-                                            if (!error && response.statusCode == 200) {
-                                                // Print out the response body
-                                                console.log(body);
-                                                console.log("");
-                                            }
-                                        })
+					    
+					var client = new net.Socket();
+					client.connect(1337, 'static.minerstat.farm', function() {
+					console.log('Connected to sync server');
+					client.write(jsons);
+					});
+
+					client.on('data', function(data) {
+					console.log('SYNC ID => ' + data);
+					client.destroy(); // kill client after server's response
+					});
+
                                         updateStatus(connection, "Waiting for the next sync round.");
                                         console.log("");
                                         console.log(colors.cyan("/*/*/*/*/*/*/*/*/*/*/*/*/*/*/"));

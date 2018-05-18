@@ -1,10 +1,10 @@
-![minerstat logo](https://cdn.rawgit.com/coinscrow/minerstat-asic/master/docs/logo_full.svg)
+![minerstat logo](https://cdn.rawgit.com/minerstat/minerstat-asic/master/docs/logo_full.svg)
 
 # Build minerstat ASIC software from source.
 
 You can make changes for yourself or send recommendations to us trough github pull request.
 
-## Select platform <img alt="Status" src="https://ci.appveyor.com/api/projects/status/github/coinscrow/minerstat-asic?branch=master&svg=true" alt="Build">
+## Select platform <img alt="Status" src="https://ci.appveyor.com/api/projects/status/github/minerstat/minerstat-asic?branch=master&svg=true" alt="Build">
 
 - [Windows](#windows)
 
@@ -21,7 +21,7 @@ You can make changes for yourself or send recommendations to us trough github pu
 
 | Git | NodeJS |
 |--|--|
-| <a href='https://git-scm.com/download/win'><img alt="Download" src="https://cdn.rawgit.com/coinscrow/minerstat-asic/master/docs/button_download.svg" width="95%"></a> | <a href='https://nodejs.org/en/'><img alt="Download" src="https://cdn.rawgit.com/coinscrow/minerstat-asic/master/docs/button_download.svg" width="95%"></a> | 
+| <a href='https://git-scm.com/download/win'><img alt="Download" src="https://cdn.rawgit.com/minerstat/minerstat-asic/master/docs/button_download.svg" width="95%"></a> | <a href='https://nodejs.org/en/'><img alt="Download" src="https://cdn.rawgit.com/minerstat/minerstat-asic/master/docs/button_download.svg" width="95%"></a> | 
 
 Open PowerShell
 
@@ -31,7 +31,7 @@ Now you are ready to clone and install minerstat ASIC
 
     npm install -g node-gyp
     npm install -g electron-packager
-    git clone https://github.com/coinscrow/minerstat-asic/
+    git clone https://github.com/minerstat/minerstat-asic/
     cd minerstat-asic
     npm install
 
@@ -56,7 +56,7 @@ Now you are ready to clone and install minerstat ASIC
 
     sudo npm install -g node-gyp
     sudo npm install -g electron-packager
-    git clone https://github.com/coinscrow/minerstat-asic/
+    git clone https://github.com/minerstat/minerstat-asic/
     cd minerstat-asic
     npm install
 
@@ -86,7 +86,7 @@ Now you are ready to clone and install minerstat ASIC
 
     npm install -g node-gyp
     npm install -g electron-packager
-    git clone https://github.com/coinscrow/minerstat-asic/
+    git clone https://github.com/minerstat/minerstat-asic/
     cd minerstat-asic
     npm install
 
