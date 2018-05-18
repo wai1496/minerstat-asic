@@ -1,6 +1,8 @@
 ![minerstat logo](https://cdn.rawgit.com/minerstat/minerstat-asic/master/docs/logo_full.svg)
 
-# minerstat for ASIC
+# minerstat for ASIC (Check link for Official repo)
+
+Official Repo: [https://github.com/minerstat/minerstat-asic](https://github.com/minerstat/minerstat-asic)
 
 **minerstat for ASIC** is mining monitoring and management software for your **Antminer** and/or **Baikal** machines.
 
